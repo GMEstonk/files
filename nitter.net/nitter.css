@@ -1,0 +1,14 @@
+html
+{
+filter:hue-rotate(100deg);
+}
+
+img,
+video
+{
+filter:hue-rotate(-100deg);
+}
+
+.site-logo{
+filter:hue-rotate(20deg);
+}
