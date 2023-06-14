@@ -60,7 +60,7 @@ function proxyTagsFix(attr){
     for (let i = 0; i < hostList_length; i++) {
       for (let x = 0; x < attr_list_length; x++) {
         try {
-          attr_list[x][attr] = attr_list[x][attr].replace(hostListRegex[i], hostProxy);
+          attr_list[x][attr] = attr_list[x][attr].replace(hostListRegex[i], hostProxy).replaceAll('.servleteer.com.servleteer.com','.servleteer.com');
           /*if(attr_list[x].outerHTML.toLowerCase().includes(hostProxy+'/')){
           fixAllAttributes(attr_list[x]);
           }*/
