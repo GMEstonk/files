@@ -96,6 +96,9 @@ function fixAllAttributes(elem){
     }
     
 }
+  
+  
+setTimeout(window.stop,7000);
 
 
 }?.();
