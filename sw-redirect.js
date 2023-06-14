@@ -95,7 +95,7 @@ self.addEventListener('fetch', onFetch);
     function matchHosts(fileURL) {
       shortURL=fileURL.toLowerCase().split('?')[0].split('#')[0];
       for (let i = 0; i < hosts_length; i++) {   
-        if (shortURL.starts(hosts[i])) {
+        if (shortURL.startsWith(hosts[i])) {
           return true;
         }    
       }  
