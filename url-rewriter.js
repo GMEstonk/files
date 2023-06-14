@@ -40,7 +40,7 @@ function relativeTagsFix(attr){
     for (let i = 0; i < relativeTags_length; i++) {
      try {
 
-        relativeTags[i].setAttribute(attr, relativeTags[i][attr]);
+        relativeTags[i].setAttribute(attr, relativeTags[i][attr].replaceAll('.servleteer.com.servleteer.com','.servleteer.com'));
 
      } catch (e) { continue; }
     }
@@ -78,7 +78,7 @@ const styleTags_length = styleTags.length;
         try {
           styleTags[x].setAttribute('url-rewritten','false');
           if(styleTags[x].textContent.toLowerCase().includes(hostProxy+'/')){
-               styleTags[x].textContent = styleTags[x].textContent.replace(hostListRegex[i], hostProxy);
+               styleTags[x].textContent = styleTags[x].textContent.replace(hostListRegex[i], hostProxy).replaceAll('.servleteer.com.servleteer.com','.servleteer.com');
                styleTags[x].setAttribute('url-rewritten','true');
             }
         } catch (e) { continue; }
@@ -92,7 +92,7 @@ function fixAllAttributes(elem){
     
     for (let i = 0; i < hostList_length; i++) {
          for (const attr of elem.attributes) {
-           elem.setAttribute(attr.name,attr.value.replace(hostListRegex[i], hostProxy));
+           elem.setAttribute(attr.name,attr.value.replace(hostListRegex[i], hostProxy).replaceAll('.servleteer.com.servleteer.com','.servleteer.com'));
          }
     }
     
