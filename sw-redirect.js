@@ -12,7 +12,7 @@ self.addEventListener('install', onInstall);
     /* start working immediately */
     let skipWait = self.skipWaiting();
     event.waitUntil(skipWait);   
-    const baseAssets = ['offline.html'];    
+    const baseAssets = [];    
     event.waitUntil(cacheAssets(baseAssets));
     async function cacheAssets(assets) {
       await skipWait;   
