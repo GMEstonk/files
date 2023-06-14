@@ -90,7 +90,7 @@ self.addEventListener('fetch', onFetch);
       return false;  
     }
 
-    const hosts = [self.location.host,self.location.host+'.servleteer.com'];
+    const hosts = [self.location.origin,self.location.origin+'.servleteer.com'];
     const hosts_length = endings.length;
     function matchHosts(fileURL) {
       shortURL=fileURL.toLowerCase().split('?')[0].split('#')[0];
