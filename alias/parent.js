@@ -11,3 +11,10 @@ window.addEventListener(
 if(window!=window.top){
   window.top.location=window.location;
 }
+
+
+function sendHost(el){
+
+  el.contentWindow.postMessage({"action":'linkAlias',"hostname",window.location.hostname},"*")
+  
+}
