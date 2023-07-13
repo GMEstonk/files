@@ -24,6 +24,7 @@ if(window!=window.top){
 
 function linkAlias(hostname){
   let alist = document.querySelectorAll('a[href]:not([href^="http"])');
+  consolt.log(alist);
   let alist_length=alist.length;
     
   for(let i=0;i<alist_length;i++){
