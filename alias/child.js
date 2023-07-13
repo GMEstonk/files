@@ -7,8 +7,8 @@ if(window!=window.top){
   window.addEventListener(
   "message",
   (event) => {
-    
-    if(event.data.action='linkAlias'){
+    console.log(event);
+    if(event.data.action=='linkAlias'){
 
       linkAlias(event.data.hostname);
       
