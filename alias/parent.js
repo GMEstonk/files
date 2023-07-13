@@ -15,6 +15,6 @@ if(window!=window.top){
 
 function sendHost(el){
 
-  el.contentWindow.postMessage({"action":'linkAlias',"hostname":window.location.hostname},"*")
+  el.contentWindow.postMessage({action:'linkAlias',hostname:window.location.hostname},"*")
   
 }
