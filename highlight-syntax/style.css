@@ -1,0 +1,4 @@
+:not(:has(section[aria-labelledby="file-name-id"]),section[aria-labelledby="file-name-id"],section[aria-labelledby="file-name-id"] *)
+{display:none;}
+
+:has(section[aria-labelledby="file-name-id"]){min-height:100% !important;}
