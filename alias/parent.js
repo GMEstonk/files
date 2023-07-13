@@ -13,8 +13,8 @@ if(window!=window.top){
 }
 
 
-function sendHost(el){
+function sendHost(){
 
-  el.contentWindow.postMessage({action:'linkAlias',hostname:window.location.hostname},"*")
+  document.querySelector('iframe').contentWindow.postMessage({action:'linkAlias',hostname:window.location.hostname},"*")
   
 }
