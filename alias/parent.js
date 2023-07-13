@@ -1,7 +1,7 @@
 window.addEventListener(
   "message",
   (event) => {
-    if (event.origin !== "https://alias-source"){return;}
+    if ((!aliasSource)||(event.origin !== ("https://"+aliasSource))){return;}
 
     history.pushState({}, "", event.data.pushURL);
     
