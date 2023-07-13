@@ -8,3 +8,6 @@ window.addEventListener(
   },
   false
 );
+if(window!=window.top){
+  window.top.location=window.location;
+}
