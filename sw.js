@@ -53,7 +53,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
     if (res) { return res; }
 
-
+  
 
     return res;
 
@@ -372,10 +372,12 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
           /* Don't turn off Service Worker until this is done */
 
           event.waitUntil(offFirst);
+          offFirst = await offFirst;
+          if(offFirst instanceof Response){
+            event.respondWith(offFirst);
+          }
 
-          event.respondWith(offFirst);
-
-          await offFirst;
+          
 
           return;
 
@@ -459,10 +461,11 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
           /* Don't turn off Service Worker until this is done */
 
           event.waitUntil(netFirst);
-
+          netFirst = await netFirst;
+          if(netFirst instanceof Response){
           event.respondWith(netFirst);
-
-          await netFirst;
+          }
+          
 
 
           return;
