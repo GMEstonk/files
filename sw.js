@@ -375,9 +375,11 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
           
           if(offFirst instanceof Response){
             event.respondWith(offFirst);
+          }else{
+            console.log(offFirst);
           }
 
-          offFirst = await offFirst;
+          await offFirst;
 
           return;
 
@@ -464,7 +466,10 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
           
           if(netFirst instanceof Response){
           event.respondWith(netFirst);
+          }else{
+            console.log(await netFirst);
           }
+
           
           await netFirst;
 
