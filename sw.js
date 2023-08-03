@@ -376,7 +376,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
           event.waitUntil(offFirst);
           
           if(globalThis.respondWithResponse instanceof Response){
-            event.respondWith(globalThis.respondWithResponse);
+            event.respondWith(globalThis.respondWithResponse.clone());
           }else{
             console.log(globalThis.respondWithResponse);
           }
@@ -467,7 +467,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
           event.waitUntil(netFirst);
           
           if(globalThis.respondWithResponse instanceof Response){
-          event.respondWith(globalThis.respondWithResponse);
+          event.respondWith(globalThis.respondWithResponse.clone());
           }else{
             console.log(globalThis.respondWithResponse);
           }
