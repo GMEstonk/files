@@ -269,7 +269,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
 
   function onRequest(event) {
-    let respondWithReponse;
+    let respondWithResponse;
     try {
 
 
