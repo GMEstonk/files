@@ -269,7 +269,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
 
   function onRequest(event) {
-
+    globalThis.respondWithReponse;
     try {
 
 
@@ -332,31 +332,33 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
 
             if (res) {
+              globalThis.respondWithResponse = res;
               return res;
             }
 
 
 
             try {
-
+              
               res = await fetch(request);
 
               if (res) {
 
                 /* Save a copy of it in cache */
                 await cacheResponse(request, res);
+                globalThis.respondWithResponse = res;
                 return res;
               }
 
               res = await cascadeMatchesTier2(request);
-
+              globalThis.respondWithResponse = res;
               return res;
 
 
             } catch (e) {
 
               res = await cascadeMatchesTier2(request);
-
+              globalThis.respondWithResponse = res;
               return res;
 
 
@@ -373,10 +375,10 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
           event.waitUntil(offFirst);
           
-          if(offFirst instanceof Response){
-            event.respondWith(offFirst);
+          if(globalThis.respondWithResponse instanceof Response){
+            event.respondWith(globalThis.respondWithResponse);
           }else{
-            console.log(offFirst);
+            console.log(globalThis.respondWithResponse);
           }
 
           await offFirst;
@@ -426,7 +428,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
                 await cacheResponse(request, res);
 
 
-
+                globalThis.respondWithResponse = res;
                 return res;
 
 
@@ -437,7 +439,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
               res = await cascadeMatches(request);
 
-
+              globalThis.respondWithResponse = res;
               return res;
 
 
@@ -448,7 +450,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
               let res = await cascadeMatches(request);
 
-
+              globalThis.respondWithResponse = res;
               return res;
 
 
@@ -464,10 +466,10 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
           event.waitUntil(netFirst);
           
-          if(netFirst instanceof Response){
-          event.respondWith(netFirst);
+          if(globalThis.respondWithResponse instanceof Response){
+          event.respondWith(globalThis.respondWithResponse);
           }else{
-            console.log(await netFirst);
+            console.log(globalThis.respondWithResponse);
           }
 
           
