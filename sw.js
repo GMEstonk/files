@@ -66,13 +66,13 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
     res = await caches.match(req, looser);
 
-    if (res) { return res; }
+   // if (res) { return res; }
 
-    res = await caches.match(req, loosen);
+    //res = await caches.match(req, loosen);
 
-    if (res) { return res; }
+   // if (res) { return res; }
 
-    res = await caches.match(req, loosest);
+   // res = await caches.match(req, loosest);
 
 
     return res;
