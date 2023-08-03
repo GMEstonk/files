@@ -269,7 +269,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
 
   function onRequest(event) {
-    globalThis.respondWithReponse;
+    let respondWithReponse;
     try {
 
 
@@ -332,7 +332,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
 
             if (res) {
-              globalThis.respondWithResponse = res;
+              respondWithResponse = res;
               return res;
             }
 
@@ -346,19 +346,19 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
                 /* Save a copy of it in cache */
                 await cacheResponse(request, res);
-                globalThis.respondWithResponse = res;
+                respondWithResponse = res;
                 return res;
               }
 
               res = await cascadeMatchesTier2(request);
-              globalThis.respondWithResponse = res;
+              respondWithResponse = res;
               return res;
 
 
             } catch (e) {
 
               res = await cascadeMatchesTier2(request);
-              globalThis.respondWithResponse = res;
+              respondWithResponse = res;
               return res;
 
 
@@ -375,10 +375,10 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
           event.waitUntil(offFirst);
           
-          if(globalThis.respondWithResponse instanceof Response){
-            event.respondWith(globalThis.respondWithResponse.clone());
+          if(respondWithResponse instanceof Response){
+            event.respondWith(respondWithResponse.clone());
           }else{
-            console.log(globalThis.respondWithResponse);
+            console.log(respondWithResponse);
           }
 
           await offFirst;
@@ -428,7 +428,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
                 await cacheResponse(request, res);
 
 
-                globalThis.respondWithResponse = res;
+                respondWithResponse = res;
                 return res;
 
 
@@ -439,7 +439,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
               res = await cascadeMatches(request);
 
-              globalThis.respondWithResponse = res;
+              respondWithResponse = res;
               return res;
 
 
@@ -450,7 +450,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
               let res = await cascadeMatches(request);
 
-              globalThis.respondWithResponse = res;
+              respondWithResponse = res;
               return res;
 
 
@@ -466,10 +466,10 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
           event.waitUntil(netFirst);
           
-          if(globalThis.respondWithResponse instanceof Response){
-          event.respondWith(globalThis.respondWithResponse.clone());
+          if(respondWithResponse instanceof Response){
+          event.respondWith(respondWithResponse.clone());
           }else{
-            console.log(globalThis.respondWithResponse);
+            console.log(respondWithResponse);
           }
 
           
