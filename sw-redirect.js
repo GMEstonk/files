@@ -103,6 +103,7 @@ self.addEventListener('fetch', onFetch);
     }
     
     try {
+      let respondWithResponse;
       let processRequest = fetchCache();
       async function fetchCache() {
         let request = event.request;
@@ -166,25 +167,35 @@ self.addEventListener('fetch', onFetch);
           let offlineFirst = offlineFirstFetch();
           async function offlineFirstFetch() {
             let res = await cascadeMatchesTier1(request);
-            if(res&&(res.status<400)) { return res; }
+            if(res&&(res.status<400)) { 
+              respondWithResponse = res;
+              return res; 
+            }
             try {
               res = await fetch(request);
               if(res&&(res.status<400)) {
                 /* Save a copy of it in cache */
                 await cacheResponse(request, res);
+                respondWithResponse = res;
                 return res;
               }
-              res = await cascadeMatchesTier2(request);              
+              res = await cascadeMatchesTier2(request);    
+              respondWithResponse = res;
               return res;
             } catch (e) {
               console.log(e.message);
-              res = await cascadeMatchesTier2(request);           
+              res = await cascadeMatchesTier2(request);   
+              respondWithResponse = res;
               return res;
             }
           }
           /* Don't turn off Service Worker until this is done */
           event.waitUntil(offlineFirst);
-          event.respondWith(offlineFirst);
+          
+          if(respondWithResponse&&(respondWithResponse instanceof Response)){
+            event.respondWith(respondWithResponse.clone());
+          }
+          
           await offlineFirst;
           return;
         }
@@ -199,23 +210,34 @@ self.addEventListener('fetch', onFetch);
               /* Return the response */
               if(res&&(res.status<400)) {
                 await cacheResponse(request, res);
+                respondWithResponse = res;
                 return res;
               }
               res = await cascadeMatchesTier1(request);
-              if(res&&(res.status<400)){return res;}
+              if(res&&(res.status<400)){
+                respondWithResponse = res;
+                return res;
+              }
               res = await cascadeMatchesTier2(request);       
+              respondWithResponse = res;
               return res;
             } catch (e) {
               console.log(e.message);
               let res = await cascadeMatchesTier1(request);
-              if(res&&(res.status<400)){return res;}        
+              if(res&&(res.status<400)){
+                respondWithResponse = res;
+                return res;
+              }        
               res = await cascadeMatchesTier2(request);
+              respondWithResponse = res;
               return res;
             }
           }
           /* Don't turn off Service Worker until this is done */
           event.waitUntil(networkFirst);
-          event.respondWith(networkFirst);
+          if(respondWithResponse&&(respondWithResponse instanceof Response)){
+            event.respondWith(respondWithResponse.clone());
+          }
           await networkFirst;
           return;
         }
