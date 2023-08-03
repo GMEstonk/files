@@ -305,7 +305,6 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
         /* if (!request.url.startsWith(self.location.origin)) return; */
 
 
-
         /* Images */
         /* CSS & JavaScript */
         /* Offline-first */
@@ -375,7 +374,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
           event.waitUntil(offFirst);
           
-          if(respondWithResponse instanceof Response){
+          if(respondWithResponse&&(respondWithResponse instanceof Response)){
             event.respondWith(respondWithResponse.clone());
           }else{
             console.log(respondWithResponse);
@@ -466,7 +465,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
           event.waitUntil(netFirst);
           
-          if(respondWithResponse instanceof Response){
+          if(respondWithResponse&&(respondWithResponse instanceof Response)){
           event.respondWith(respondWithResponse.clone());
           }else{
             console.log(respondWithResponse);
