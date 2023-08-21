@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 let textNodes = textNodesUnder(document.querySelector('main'));
 const textNodes_length=textNodes.length;
   for(let i=0;i<textNodes_length;i++){try{
-    textNodes[i].textContent=textNodes[i].replaceAll('Wiki','Lengua');
+    textNodes[i].textContent=textNodes[i].textContent.replaceAll('Wiki','Lengua');
   }catch(e){continue;}}
 
   
