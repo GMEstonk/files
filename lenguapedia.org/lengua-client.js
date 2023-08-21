@@ -23,9 +23,6 @@ function rewriteWikiLengua(){
     }catch(e){continue;}}
 }
 
-document.addEventListener("DOMContentLoaded", (event) => {
-
-  rewriteWikiLengua();
-  setInterval(I=>rewriteWikiLengua(),300);
-  
-});
+document.addEventListener("DOMContentLoaded",e=>rewriteWikiLengua());
+setInterval(async I=>rewriteWikiLengua(),300);
+rewriteWikiLengua();
