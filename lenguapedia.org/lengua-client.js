@@ -23,7 +23,7 @@ if(ica){
 }
  
 
-const windowURL=window.location.href.toLowerCase();
+globalThis.windowURL=window.location.href.toLowerCase();
 function rewriteWikiLengua(){
   const main = document.querySelector('main');
   if(!main){return;}
