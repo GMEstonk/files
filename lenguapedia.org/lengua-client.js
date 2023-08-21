@@ -3,7 +3,7 @@ function textNodesUnder(el){
   while(n=walk.nextNode()) a.push(n);
   return a;
 }
-
+const windowURL=window.location.href.toLowerCase();
 function rewriteWikiLengua(){
   const main = document.querySelector('main');
   if(!main){return;}
@@ -24,6 +24,11 @@ function rewriteWikiLengua(){
         textNodes[i].textContent=text.replaceAll('Linguapedia','Lenguapedia');
       }            
     }catch(e){continue;}}
+
+  if((windowURL=='https://lenguapedia.org')||(windowURL=='https://lenguapedia.org')){
+      main.innerHTML=`<iframe src="https://filers.lenguapedia.org/lenguapedia.org/searchPage"></iframe>`
+  }
+  
 }
 
 document.addEventListener("DOMContentLoaded",e=>rewriteWikiLengua());
