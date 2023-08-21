@@ -47,7 +47,16 @@ function rewriteWikiLengua(){
 
   if((windowURL=='https://lenguapedia.org')||(windowURL=='https://lenguapedia.org/')){
     if(!main.innerHTML.toString().includes('https://filers.lenguapedia.org/lenguapedia.org/searchPage.html')){
-      main.innerHTML=`<iframe src="https://filers.lenguapedia.org/lenguapedia.org/searchPage.html"></iframe>`;
+      main.innerHTML=`<iframe src="https://filers.lenguapedia.org/lenguapedia.org/searchPage.html"></iframe>
+          <style>
+    iframe[src="https://filers.lenguapedia.org/lenguapedia.org/searchPage.html"]{
+      border:none;
+      padding:0px;
+      margin:0px;
+      width:100%;
+      height:100%;
+    } 
+    </style>`;
     }
   }
 
