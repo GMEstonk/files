@@ -5,11 +5,13 @@ function textNodesUnder(el){
 }
 
 function rewriteWikiLengua(){
-  let textNodes = textNodesUnder(document.querySelector('main'));
+  const main = document.querySelector('main');
+  if(!main){return;}
+  let textNodes = textNodesUnder(main);
   const textNodes_length=textNodes.length;
     for(let i=0;i<textNodes_length;i++){try{
       let text = textNodes[i].textContent;
-      if(text.includes('Wiki)){
+      if(text.includes('Wiki')){
         textNodes[i].textContent=text.replaceAll('Wiki','Lengua');
       }
       if(text.includes('Languapedia')){
