@@ -4,7 +4,7 @@ function textNodesUnder(el){
   return a;
 }
 
-let ici=document.querySelector('link[rel="icon"]');
+globalThis.ici=document.querySelector('link[rel="icon"]');
 if(ici){
   let ic2 = document.createElement('link');
   ic2.setAttribute('rel','icon');
@@ -13,7 +13,7 @@ if(ici){
   document.body.appendChild(ic2);
 }
 
-let ica=document.querySelector('link[rel="apple-touch-icon"]');
+globalThis.ica=document.querySelector('link[rel="apple-touch-icon"]');
 if(ica){
   let ica2 = document.createElement('link');
   ica2.setAttribute('rel','apple-touch-icon');
