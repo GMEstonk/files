@@ -4,12 +4,12 @@ function textNodesUnder(el){
   return a;
 }
 
-let ic=document.querySelector('link[rel="icon"]');
-if(ic){
+let ici=document.querySelector('link[rel="icon"]');
+if(ici){
   let ic2 = document.createElement('link');
   ic2.setAttribute('rel','icon');
   ic2.setAttribute('href','https://cdn-static.ecosia.org/assets/images/ico/favicon.ico');
-  ic.remove();
+  ici.remove();
   document.body.appendChild(ic2);
 }
 
