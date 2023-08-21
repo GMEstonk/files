@@ -17,6 +17,9 @@ function rewriteWikiLengua(){
       if(text.includes('Languapedia')){
         textNodes[i].textContent=text.replaceAll('Languapedia','Lenguapedia');
       }     
+      if(text.includes('Languagepedia')){
+        textNodes[i].textContent=text.replaceAll('Languagepedia','Lenguapedia');
+      }     
       if(text.includes('Linguapedia')){
         textNodes[i].textContent=text.replaceAll('Linguapedia','Lenguapedia');
       }            
