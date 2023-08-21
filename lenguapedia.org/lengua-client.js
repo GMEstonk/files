@@ -49,7 +49,7 @@ function rewriteWikiLengua(){
       main.innerHTML=`<iframe src="https://filers.lenguapedia.org/lenguapedia.org/searchPage.html"></iframe>`;
   }
 
-  changeFavicon('https://cdn-static.ecosia.org/assets/images/ico/favicon.ico');
+
   
 }
 
