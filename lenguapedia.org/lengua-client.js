@@ -54,7 +54,7 @@ function rewriteWikiLengua(){
       padding:0px;
       margin:0px;
       width:100%;
-      height:100%;
+      height:100vh;
     } 
     </style>`;
     }
