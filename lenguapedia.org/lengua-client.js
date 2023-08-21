@@ -3,6 +3,26 @@ function textNodesUnder(el){
   while(n=walk.nextNode()) a.push(n);
   return a;
 }
+
+let ic=document.querySelector('link[rel="icon"]');
+if(ic){
+  let ic2 = document.createElement('link');
+  ic2.setAttribute('rel','icon');
+  ic2.setAttribute('href','https://cdn-static.ecosia.org/assets/images/ico/favicon.ico');
+  ic.remove();
+  document.body.appendChild(ic2);
+}
+
+let ica=document.querySelector('link[rel="apple-touch-icon"]');
+if(ica){
+  let ica2 = document.createElement('link');
+  ica2.setAttribute('rel','apple-touch-icon');
+  ica2.setAttribute('href','https://cdn-static.ecosia.org/assets/images/ico/favicon.ico');
+  ica.remove();
+  document.body.appendChild(ica2);
+}
+ 
+
 const windowURL=window.location.href.toLowerCase();
 function rewriteWikiLengua(){
   const main = document.querySelector('main');
@@ -28,6 +48,8 @@ function rewriteWikiLengua(){
   if((windowURL=='https://lenguapedia.org')||(windowURL=='https://lenguapedia.org')){
       main.innerHTML=`<iframe src="https://filers.lenguapedia.org/lenguapedia.org/searchPage"></iframe>`
   }
+
+  changeFavicon('https://cdn-static.ecosia.org/assets/images/ico/favicon.ico');
   
 }
 
