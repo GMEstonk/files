@@ -46,7 +46,7 @@ function rewriteWikiLengua(){
     }catch(e){continue;}}
 
   if((windowURL=='https://lenguapedia.org')||(windowURL=='https://lenguapedia.org')){
-      main.innerHTML=`<iframe src="https://filers.lenguapedia.org/lenguapedia.org/searchPage"></iframe>`
+      main.innerHTML=`<iframe src="https://filers.lenguapedia.org/lenguapedia.org/searchPage.html"></iframe>`;
   }
 
   changeFavicon('https://cdn-static.ecosia.org/assets/images/ico/favicon.ico');
