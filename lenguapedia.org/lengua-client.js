@@ -10,7 +10,7 @@ function changeIcon(rel){
   if(ici){
     let ic2 = document.createElement('link');
     ic2.setAttribute('rel',rel);
-    ic2.setAttribute('href','https://styles.redditmedia.com/t5_8xtdjf/styles/communityIcon_g8if68b1ahjb1.png');
+    ic2.setAttribute('href','https://styles.redditmedia.com/t5_8xtdjf/styles/communityIcon_g8if68b1ahjb1.png#');
     ici.remove();
     document.head.appendChild(ic2);
   }
