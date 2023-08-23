@@ -5,7 +5,7 @@ function textNodesUnder(el){
 }
 
 
-function changeIcon(rel){
+/*function changeIcon(rel){
   let ici=document.querySelector('link[rel="'+rel+'"]');
   if(ici){
     let ic2 = document.createElement('link');
@@ -16,7 +16,7 @@ function changeIcon(rel){
   }
 }
 changeIcon('icon');
-changeIcon('apple-touch-icon');
+changeIcon('apple-touch-icon');*/
 
 
 globalThis.windowURL=window.location.href.toLowerCase();
