@@ -12,7 +12,7 @@ function changeIcon(rel){
     ic2.setAttribute('rel',rel);
     ic2.setAttribute('href','https://styles.redditmedia.com/t5_8xtdjf/styles/communityIcon_g8if68b1ahjb1.png');
     ici.remove();
-    document.body.appendChild(ic2);
+    document.head.appendChild(ic2);
   }
 }
 changeIcon('icon');
