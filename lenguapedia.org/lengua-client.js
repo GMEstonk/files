@@ -4,24 +4,20 @@ function textNodesUnder(el){
   return a;
 }
 
-globalThis.ici=document.querySelector('link[rel="icon"]');
-if(ici){
-  let ic2 = document.createElement('link');
-  ic2.setAttribute('rel','icon');
-  ic2.setAttribute('href','https://cdn-static.ecosia.org/assets/images/ico/favicon.ico');
-  ici.remove();
-  document.body.appendChild(ic2);
-}
 
-globalThis.ica=document.querySelector('link[rel="apple-touch-icon"]');
-if(ica){
-  let ica2 = document.createElement('link');
-  ica2.setAttribute('rel','apple-touch-icon');
-  ica2.setAttribute('href','https://cdn-static.ecosia.org/assets/images/ico/favicon.ico');
-  ica.remove();
-  document.body.appendChild(ica2);
+function changeIcon(rel){
+  let ici=document.querySelector('link[rel="'+rel+'"]');
+  if(ici){
+    let ic2 = document.createElement('link');
+    ic2.setAttribute('rel',rel);
+    ic2.setAttribute('href','https://styles.redditmedia.com/t5_8xtdjf/styles/communityIcon_g8if68b1ahjb1.png');
+    ici.remove();
+    document.body.appendChild(ic2);
+  }
 }
- 
+changeIcon('icon');
+changeIcon('apple-touch-icon');
+
 
 globalThis.windowURL=window.location.href.toLowerCase();
 function rewriteWikiLengua(){
