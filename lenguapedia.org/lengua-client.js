@@ -64,7 +64,15 @@ function rewriteWikiLengua(){
 
   
 }
-
+let hideMain=document.querySelector('style[hide-main]');
+if(hideMain){hideMain.remove();}
 document.addEventListener("DOMContentLoaded",e=>rewriteWikiLengua());
 setInterval(async I=>rewriteWikiLengua(),300);
 rewriteWikiLengua();
+
+document.addEventListener("DOMContentLoaded",e=>{
+
+let hideMain=document.querySelector('style[hide-main]');
+if(hideMain){hideMain.remove();}
+  
+}
