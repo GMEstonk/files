@@ -74,10 +74,10 @@ document.querySelector('button').onclick=function(){
     }
 
         let langPage=await corsFetchText('https://translate.google.com');
-        const parser = new DOMParser();
+        const lparser = new DOMParser();
 
 
-        let langDoc = parser.parseFromString(langPage, "text/html");
+        let langDoc = lparser.parseFromString(langPage, "text/html");
         let langDropdown = ``;
         let langRows = langDoc.querySelector('[data-language-code]')
         const langRows_length=langRows.length;
