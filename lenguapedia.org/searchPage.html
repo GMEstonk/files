@@ -46,8 +46,9 @@ let langList = {};
         for(let i=1;i<wikiRows_length;i++){try{
             let code = wikiRows[i].getElementsByTagName('td')[3].textContent.trim();
             let full = wikiRows[i].getElementsByTagName('td')[1].textContent.trim();
+            if(code=='zh'){full='Chinese';}
             wikiList[code]=full;
-            wikiDropdown+=`<option value="`+code+`">`+full+`</option>`;
+            wikiDropdown+=`<option value="`+code+`">`code+':'+full+`</option>`;
         }catch(e){continue;}}     
         document.getElementById('wiki-prefix').innerHTML=wikiDropdown;
     }();
