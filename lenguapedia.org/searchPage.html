@@ -82,7 +82,7 @@ document.querySelector('button').onclick=function(){
         let langRows = langDoc.querySelector('[data-language-code]')
         const langRows_length=langRows.length;
         for(let i=1;i<langRows_length;i++){try{
-            let code = langRows[i]['data-language-code'];
+            let code = langRows[i].getAttribute('data-language-code');
             let full = langRows[i].querySelector('[jsname]').textContent.trim();
             langList[code]=full;
             langDropdown+=`<option value="`+code+`">`+code+':'+full+`</option>`;
