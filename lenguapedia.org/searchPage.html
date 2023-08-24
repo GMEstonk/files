@@ -19,7 +19,7 @@ let wikiList = {};
 
 let langList = {};
    
-document.querySelector('button').onclick=function{
+document.querySelector('button').onclick=function(){
   let tryWiki = document.getElementById('wiki-prefix').value;
   let tryLang = document.getElementById('lang-to').value;
   let table='`<tr><th>From Language</th><th>To Language</th><th>Wiki Link</th></tr>';
@@ -62,7 +62,7 @@ document.querySelector('button').onclick=function{
             let full = wikiRows[i].getElementsByTagName('td')[1].textContent.trim();
             if(code=='zh'){full='Chinese';}
             wikiList[code]=full;
-            wikiDropdown+=`<option value="`+code+`">`code+':'+full+`</option>`;
+            wikiDropdown+=`<option value="`+code+`">`+code+':'+full+`</option>`;
         }catch(e){continue;}}     
         document.getElementById('wiki-prefix').innerHTML=wikiDropdown;
     }();
