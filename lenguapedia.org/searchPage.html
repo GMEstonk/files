@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List of Wikis</title>
+  <style id="lang-from">[id="lang-table"] tr{display:none;}</style>
+  <style id="lang-to">[id="lang-table"] tr{display:none;}</style>
+</head>
+
+<body>
+<center>
+  <h1>Translate Wikis</h1>
+  <p>Enter language codes</p><br><br>
+<table><tr><td>From: </td><td><select id="wiki-prefix"></select></td></tr>
+
+<tr><td>To: </td><td><select id="lang-to"></select></td></tr>
+</table>
+<br><button>Submit</button><br>
+
+<script>
+let wikiList = {};
+
+let langList = {};
+   
+
+    function makeRow(wikiPrefix,langTo){
+        
+        retun `<tr><td>`+wikiList[wikiPrefix]+`</td><td>`+langList[langTo]+`</td><td><a target="_blank" href="https://`+langTo+`.lenguapedia.org?langs=`+wikiPrefix+`.`+langTo+`">https://`+langTo+`.lenguapedia.org?langs=`+wikiPrefix+`.`+langTo+`</a></td></tr>`;    
+    }
+    
+    async function corsFetchText(url){
+    
+        return await(await fetch('https://api.lenguapedia.org/corsFetch/'+url)).text();
+    
+    }
+    
+    void async function populateLists(){
+
+        let wikiPage=await corsFetchText('https://en.wikipedia.org/wiki/List_of_Wikipedias');
+        const parser = new DOMParser();
+
+
+        let wikiDoc = parser.parseFromString(wikiPage, "text/html");
+        let wikiDropdown = ``;
+        let wikiRows = wikiDoc.getElementsByClassName('wikitable')[1].getElementsByTagName('tr');
+        const wikiRows_length=wikiRows.length;
+        for(let i=1;i<wikiRows_length;i++){try{
+            let code = wikiRows[i].getElementsByTagName('td')[3].textContent.trim();
+            let full = wikiRows[i].getElementsByTagName('td')[1].textContent.trim();
+            wikiList[code]=full;
+            wikiDropdown+=`<option value="`+code+`">`+full+`</option>`;
+        }catch(e){continue;}}     
+        document.getElementById('wiki-prefix').innerHTML=wikiDropdown;
+    }();
+    
+    
+    
+</script>
+
+<table id="lang-table"><tr><th>From language</th><th>To Language</th><th>URL</th></tr>
+
+</table>
+</body>
+</html>
