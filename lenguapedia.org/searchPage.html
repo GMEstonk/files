@@ -23,16 +23,18 @@ let langList = {};
    
 document.querySelector('button').onclick=function{
   let tryWiki = document.getElementById('wiki-prefix').value;
+  let tryLang = document.getElementById('lang-to').value;
   let table='';
   let wikiCodes = Object.getKeys(wikiList);
   const wikiCodes_length = wikiCodes.length;
   let langCodes = Object.getKeys(langList);
   const langCodes_length = langCodes.length;
   for(let i=0;i<wikiCodes_length;i++){
+    if((!wikiCodes[i].includes(tryWiki))||(!tryWiki.includes(wikiCodes[i]))){continue;}
     for(let x=0;x<langCodes_length;x++){try{
-      if(false){
+      if((!langCodes[x].includes(tryLang))||(!tryLang.includes(langCodes[x]))){continue;}
         table+=makeRow(wikiCodes[i],langCodes[x]);
-      }
+
     }catch(e){continue;}}
   }
   
