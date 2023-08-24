@@ -76,7 +76,7 @@ rewriteWikiLengua();
   });
 
 if((document.readyState=='complete')
-  ||(document.currentScript.outerHTML.toString().includes('defer')){
+  ||(document.currentScript.outerHTML.toString().includes('defer'))){
   
   let hideMain=document.querySelector('style[hide-main]');
   if(hideMain){hideMain.remove();}
