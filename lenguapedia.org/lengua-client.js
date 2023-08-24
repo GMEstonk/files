@@ -75,4 +75,4 @@ document.addEventListener("DOMContentLoaded",e=>{
 let hideMain=document.querySelector('style[hide-main]');
 if(hideMain){hideMain.remove();}
   
-}
+});
