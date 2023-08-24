@@ -6,7 +6,11 @@
 select{
   width: 10vmax;
 }
-    
+[id="lang-table"]>td{
+  border-width:1px;
+  border-style:solid;
+  border-color:rgba(0,0,0,0.5);
+}
   </style>
 </head>
 
@@ -18,7 +22,7 @@ select{
 
 <tr><td>To: </td><td><select id="lang-to"></select></td></tr>
 </table>
-<br><button>Submit</button><br>
+<br><br>
 <table id="lang-table"></table>
 <script>
 let wikiList = {};
