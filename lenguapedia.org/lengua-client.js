@@ -80,3 +80,9 @@ if(document.readyState!='complete'){
   if(hideMain){hideMain.remove();}
   
 }
+
+setTimeout(function(){
+  let hideMain=document.querySelector('style[hide-main]');
+  if(hideMain){hideMain.remove();}
+  
+},5000);
