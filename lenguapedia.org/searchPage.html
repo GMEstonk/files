@@ -23,9 +23,10 @@ document.querySelector('button').onclick=function(){
   let tryWiki = document.getElementById('wiki-prefix').value;
   let tryLang = document.getElementById('lang-to').value;
   let table='<tr><th>From Language</th><th>To Language</th><th>Wiki Link</th></tr>';
-  let wikiCodes = Object.getKeys(wikiList);
+  const table_length=table.length;
+  let wikiCodes = Object.keys(wikiList);
   const wikiCodes_length = wikiCodes.length;
-  let langCodes = Object.getKeys(langList);
+  let langCodes = Object.keys(langList);
   const langCodes_length = langCodes.length;
   for(let i=0;i<wikiCodes_length;i++){
     if((!wikiCodes[i].includes(tryWiki))||(!tryWiki.includes(wikiCodes[i]))){continue;}
@@ -34,7 +35,11 @@ document.querySelector('button').onclick=function(){
         table+=makeRow(wikiCodes[i],langCodes[x]);
     }catch(e){continue;}}
   }
-  document.getElementById('lang-table').innerHTML=table;
+  if(table.length>table_length){
+    document.getElementById('lang-table').innerHTML=table;
+  }else{
+    document.getElementById('lang-table').innerHTML='';   
+  }
 }
     function makeRow(wikiPrefix,langTo){
         
@@ -95,7 +100,7 @@ document.querySelector('button').onclick=function(){
     
 </script>
 
-<table id="lang-table"><tr><th>From language</th><th>To Language</th><th>URL</th></tr>
+
 
 </table>
 </body>
