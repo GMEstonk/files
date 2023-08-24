@@ -65,6 +65,29 @@ document.querySelector('button').onclick=function(){
             wikiDropdown+=`<option value="`+code+`">`+code+':'+full+`</option>`;
         }catch(e){continue;}}     
         document.getElementById('wiki-prefix').innerHTML=wikiDropdown;
+
+
+          async function corsFetchText(url){
+    
+        return await(await fetch('https://api.lenguapedia.org/corsFetch/'+url)).text();
+    
+    }
+
+        let langPage=await corsFetchText('https://translate.google.com');
+        const parser = new DOMParser();
+
+
+        let langDoc = parser.parseFromString(langPage, "text/html");
+        let langDropdown = ``;
+        let langRows = langDoc.querySelector('[data-language-code]')
+        const langRows_length=langRows.length;
+        for(let i=1;i<langRows_length;i++){try{
+            let code = langRows[i]['data-language-code'];
+            let full = langRows[i].querySelector('[jsname]').textContent.trim();
+            langList[code]=full;
+            langDropdown+=`<option value="`+code+`">`+code+':'+full+`</option>`;
+        }catch(e){continue;}}     
+        document.getElementById('lang-to').innerHTML=langDropdown;
     }();
     
     
