@@ -56,23 +56,27 @@ function rewriteWikiLengua(){
       height:100vh;
     } 
     </style>`;
-    let hideMain=document.querySelector('style[hide-main]');
-    if(hideMain){hideMain.remove();}
     }
   }
 
 
   
 }
-let hideMain=document.querySelector('style[hide-main]');
-if(hideMain){hideMain.remove();}
+
 document.addEventListener("DOMContentLoaded",e=>rewriteWikiLengua());
 setInterval(async I=>rewriteWikiLengua(),300);
 rewriteWikiLengua();
 
-document.addEventListener("DOMContentLoaded",e=>{
-
-let hideMain=document.querySelector('style[hide-main]');
-if(hideMain){hideMain.remove();}
+if(document.readyState!='complete'){
+  document.addEventListener("load",e=>{
   
-});
+  let hideMain=document.querySelector('style[hide-main]');
+  if(hideMain){hideMain.remove();}
+    
+  });
+}else{
+
+  let hideMain=document.querySelector('style[hide-main]');
+  if(hideMain){hideMain.remove();}
+  
+}
