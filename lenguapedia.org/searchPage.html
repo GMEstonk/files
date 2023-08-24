@@ -43,7 +43,7 @@ document.querySelector('button').onclick=function(){
 }
     function makeRow(wikiPrefix,langTo){
         
-        retun `<tr><td>`+wikiList[wikiPrefix]+`</td><td>`+langList[langTo]+`</td><td><a target="_blank" href="https://`+langTo+`.lenguapedia.org?langs=`+wikiPrefix+`.`+langTo+`">https://`+langTo+`.lenguapedia.org?langs=`+wikiPrefix+`.`+langTo+`</a></td></tr>`;    
+        return `<tr><td>`+wikiList[wikiPrefix]+`</td><td>`+langList[langTo]+`</td><td><a target="_blank" href="https://`+langTo+`.lenguapedia.org?langs=`+wikiPrefix+`.`+langTo+`">https://`+langTo+`.lenguapedia.org?langs=`+wikiPrefix+`.`+langTo+`</a></td></tr>`;    
     }
     
     async function corsFetchText(url){
