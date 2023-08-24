@@ -24,8 +24,11 @@ select{
 let wikiList = {};
 
 let langList = {};
-   
-document.querySelector('button').onclick=function(){
+
+document.getElementById('lang-to').onchange=function(){getLinks();};
+document.getElementById('wiki-prefix').onchange=function(){getLinks();};
+  
+function getLinks(){
   let tryWiki = document.getElementById('wiki-prefix').value;
   let tryLang = document.getElementById('lang-to').value;
   let table='<tr><th>From Language</th><th>To Language</th><th>Wiki Link</th></tr>';
