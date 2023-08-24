@@ -67,15 +67,17 @@ document.addEventListener("DOMContentLoaded",e=>rewriteWikiLengua());
 setInterval(async I=>rewriteWikiLengua(),300);
 rewriteWikiLengua();
 
-if(document.readyState!='complete'){
+
   document.addEventListener("load",e=>{
   
   let hideMain=document.querySelector('style[hide-main]');
   if(hideMain){hideMain.remove();}
     
   });
-}else{
 
+if((document.readyState=='complete')
+  ||(document.currentScript.outerHTML.toString().includes('defer')){
+  
   let hideMain=document.querySelector('style[hide-main]');
   if(hideMain){hideMain.remove();}
   
