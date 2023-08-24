@@ -21,7 +21,22 @@ let wikiList = {};
 
 let langList = {};
    
-
+document.querySelector('button').onclick=function{
+  let tryWiki = document.getElementById('wiki-prefix').value;
+  let table='';
+  let wikiCodes = Object.getKeys(wikiList);
+  const wikiCodes_length = wikiCodes.length;
+  let langCodes = Object.getKeys(langList);
+  const langCodes_length = langCodes.length;
+  for(let i=0;i<wikiCodes_length;i++){
+    for(let x=0;x<langCodes_length;x++){try{
+      if(false){
+        table+=makeRow(wikiCodes[i],langCodes[x]);
+      }
+    }catch(e){continue;}}
+  }
+  
+}
     function makeRow(wikiPrefix,langTo){
         
         retun `<tr><td>`+wikiList[wikiPrefix]+`</td><td>`+langList[langTo]+`</td><td><a target="_blank" href="https://`+langTo+`.lenguapedia.org?langs=`+wikiPrefix+`.`+langTo+`">https://`+langTo+`.lenguapedia.org?langs=`+wikiPrefix+`.`+langTo+`</a></td></tr>`;    
