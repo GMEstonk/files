@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Translate Wikis</title>
+  <title>Lenguapedia</title>
   <style>
 select{
   width: 10vmax;
@@ -16,11 +16,11 @@ select{
 
 <body>
 <center>
-  <h1>Translate Wikis</h1>
-  <p>Select Languages</p><br><br>
-<table><tr><td>From: </td><td><select id="wiki-prefix"></select></td></tr>
+  <h1>Lenguapedia</h1>
+  <p>Find a Lenguapedia</p><br><br>
+<table><tr><td>Select a Wikipedia</td><td><select id="wiki-prefix"></select></td></tr>
 
-<tr><td>To: </td><td><select id="lang-to"></select></td></tr>
+<tr><td>Select a Language</td><td><select id="lang-to"></select></td></tr>
 </table>
 <br><br>
 <table id="lang-table"></table>
@@ -35,7 +35,7 @@ document.getElementById('wiki-prefix').onchange=function(){getLinks();};
 function getLinks(w,l){
   let tryWiki = w||document.getElementById('wiki-prefix').value;
   let tryLang = l||document.getElementById('lang-to').value;
-  let table='<tr><th>From Language</th><th>To Language</th><th>Wiki Link</th></tr>';
+  let table='<tr><th>Wikipedia</th><th>Language</th><th>Lenguapedia Link</th></tr>';
   const table_length=table.length;
   let wikiCodes = Object.keys(wikiList);
   const wikiCodes_length = wikiCodes.length;
@@ -77,8 +77,8 @@ function getLinks(w,l){
         const wikiRows_length=wikiRows.length;
         for(let i=1;i<wikiRows_length;i++){try{
             let code = wikiRows[i].getElementsByTagName('td')[3].textContent.trim();
-            let full = wikiRows[i].getElementsByTagName('td')[1].textContent.trim();
-            if(code=='zh'){full='Chinese';}
+            let full = wikiRows[i].getElementsByTagName('td')[0].textContent.trim();
+          //  if(code=='zh'){full='Chinese';}
             wikiList[code]=full;
             wikiDropdown+=`<option value="`+code+`">`+code+':'+full+`</option>`;
         }catch(e){continue;}}     
