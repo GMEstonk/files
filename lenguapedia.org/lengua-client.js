@@ -67,24 +67,31 @@ document.addEventListener("DOMContentLoaded",e=>rewriteWikiLengua());
 setInterval(async I=>rewriteWikiLengua(),300);
 rewriteWikiLengua();
 
+function lastLoad(){
+//https://files-servleteer-vercel-app.vercel.app/lenguapedia/default/mods.css
+  let mods_css = document.createElement('link');
+  mods_css.href = 'https://files-servleteer-vercel-app.vercel.app/lenguapedia/default/mods.css';
+  mods_css.setAttribute('rel','stylesheet');
+  document.body.appendChild(mods_css);
+  let hideMain=document.querySelector('style[hide-main]');
+  if(hideMain){hideMain.remove();}
+}
 
   document.addEventListener("load",e=>{
   
-  let hideMain=document.querySelector('style[hide-main]');
-  if(hideMain){hideMain.remove();}
+   lastLoad();
     
   });
 
 if((document.readyState=='complete')
   ||(document.currentScript.outerHTML.toString().includes('defer'))){
   
-  let hideMain=document.querySelector('style[hide-main]');
-  if(hideMain){hideMain.remove();}
+lastLoad();
   
 }
 
 setTimeout(function(){
-  let hideMain=document.querySelector('style[hide-main]');
-  if(hideMain){hideMain.remove();}
+
+lastLoad();
   
 },5000);
