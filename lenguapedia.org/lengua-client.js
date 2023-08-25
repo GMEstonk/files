@@ -76,7 +76,7 @@ function lastLoad(){
   mods_css.href = 'https://files-servleteer-vercel-app.vercel.app/lenguapedia/en/wiki.css?5';
   mods_css.setAttribute('rel','stylesheet');
     mods_css.setAttribute('wiki-css','wiki.css');
-  document.head.appendChild(mods_css);
+  document.body.appendChild(mods_css);
   }
   let hideMain=document.querySelector('style[hide-main]');
   if(hideMain){hideMain.remove();}
