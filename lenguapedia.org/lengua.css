@@ -6,3 +6,13 @@ border-radius:1vmax;
 img[src*="wordmark"]{
   visibility:hidden;
 }
+
+
+div,
+table,
+h1,
+h2,
+h3
+{
+  border-radius:1vmax;
+}
