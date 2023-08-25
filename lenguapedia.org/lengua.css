@@ -12,10 +12,9 @@ img[src*="wordmark"]{
 
 
 div,
-table,
 h1,
 h2,
 h3
 {
-  border-radius:1vmax;
+  border-radius:1vmin;
 }
