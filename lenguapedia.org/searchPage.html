@@ -81,6 +81,7 @@ function getLinks(w,l){
         for(let i=1;i<wikiRows_length;i++){try{
             let code = wikiRows[i].getElementsByTagName('td')[3].textContent.trim();
             let full = wikiRows[i].getElementsByTagName('td')[0].textContent.trim();
+            if(full.length<1){full = wikiRows[i].getElementsByTagName('th')[0].textContent.trim();;}
           //  if(code=='zh'){full='Chinese';}
             wikiList[code]=full;
             wikiDropdown+=`<option value="`+code+`">`+full+`</option>`;
