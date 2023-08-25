@@ -55,10 +55,10 @@ function getLinks(w,l){
   const langCodes_length = langCodes.length;
   for(let i=0;i<wikiCodes_length;i++){
     if((!wikiCodes[i].includes(tryWiki))||(!tryWiki.includes(wikiCodes[i]))){continue;}
-    for(let x=0;x<langCodes_length;x++){//try{
+    for(let x=0;x<langCodes_length;x++){try{
       if((!langCodes[x].includes(tryLang))||(!tryLang.includes(langCodes[x]))){continue;}
         table+=makeRow(wikiCodes[i],langCodes[x]);
-    }//catch(e){continue;}}
+    }catch(e){continue;}}
   }
   if(table.length>table_length){
     document.getElementById('lang-table').innerHTML=table;
@@ -78,7 +78,7 @@ function getLinks(w,l){
     }
     
     void async function populateLists(){
-
+        let langPage= corsFetchText('https://translate.google.com');
         let wikiPage=await corsFetchText('https://en.wikipedia.org/wiki/List_of_Wikipedias');
         const parser = new DOMParser();
 
@@ -104,7 +104,7 @@ function getLinks(w,l){
     
     }
 
-        let langPage=await corsFetchText('https://translate.google.com');
+        langPage=await langPage;
         const lparser = new DOMParser();
 
 
