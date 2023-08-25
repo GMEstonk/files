@@ -80,7 +80,7 @@ function getLinks(w,l){
             let full = wikiRows[i].getElementsByTagName('td')[0].textContent.trim();
           //  if(code=='zh'){full='Chinese';}
             wikiList[code]=full;
-            wikiDropdown+=`<option value="`+code+`">`+code+':'+full+`</option>`;
+            wikiDropdown+=`<option value="`+code+`">`+full+`</option>`;
         }catch(e){continue;}}     
         document.getElementById('wiki-prefix').innerHTML=wikiDropdown;
 
@@ -96,7 +96,7 @@ function getLinks(w,l){
 
 
         let langDoc = lparser.parseFromString(langPage, "text/html");
-        let langDropdown = `<option value="de">de:German</option>`;
+        let langDropdown = `<option value="de">German</option>`;
         let langRows = langDoc.querySelectorAll('div[data-language-code][jsname]');
       console.log(langRows);
         const langRows_length=langRows.length;
@@ -104,7 +104,7 @@ function getLinks(w,l){
             let code = langRows[i].getAttribute('data-language-code');
             let full = langRows[i].querySelector('[jsname]').textContent.trim();
             langList[code]=full;
-            langDropdown+=`<option value="`+code+`">`+code+':'+full+`</option>`;
+            langDropdown+=`<option value="`+code+`">`+full+`</option>`;
         }catch(e){continue;}}     
         document.getElementById('lang-to').innerHTML=langDropdown;
         getLinks('en','de');
