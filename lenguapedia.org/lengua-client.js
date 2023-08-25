@@ -69,10 +69,12 @@ rewriteWikiLengua();
 
 function lastLoad(){
 //https://files-servleteer-vercel-app.vercel.app/lenguapedia/default/mods.css
+  if(!document.querySelector('link[href*="wiki.css"]')){
   let mods_css = document.createElement('link');
   mods_css.href = 'https://files-servleteer-vercel-app.vercel.app/lenguapedia/en/wiki.css??';
   mods_css.setAttribute('rel','stylesheet');
   document.body.appendChild(mods_css);
+  }
   let hideMain=document.querySelector('style[hide-main]');
   if(hideMain){hideMain.remove();}
 }
