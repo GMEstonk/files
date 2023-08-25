@@ -1,3 +1,6 @@
+svg,
+video,
+audio,
 img[src^="https://upload"]{
 filter: drop-shadow(0 0 0.15rem gray);
 border-radius:1vmax;
