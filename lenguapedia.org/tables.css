@@ -78,6 +78,7 @@ table,tbody{
 border-style:none !important;
 border-radius:1vmax !important;
 filter: drop-shadow(0 0 0.15rem gray);
+border-collapse: collapse;
 }
  
 
