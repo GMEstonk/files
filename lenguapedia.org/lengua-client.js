@@ -46,9 +46,9 @@ function rewriteWikiLengua(){
     
     if(!main.innerHTML.toString().includes('https://filers.lenguapedia.org/lenguapedia.org/searchPage.html')){
       main.innerHTML=`
-      <iframe style="border:none;padding:0px; margin:0px;width:100%;height:100vh;" src="https://filers.lenguapedia.org/lenguapedia.org/searchPage.html"></iframe>
+      <iframe style="border:none;padding:0px; margin:0px;width:100%;height:100vh;" src="https://filers.lenguapedia.org/lenguapedia.org/searchPage.html?"`+new Date().getTime()+`></iframe>
           <style>
-    iframe[src="https://filers.lenguapedia.org/lenguapedia.org/searchPage.html"]{
+    iframe[src*="https://filers.lenguapedia.org/lenguapedia.org/searchPage.html"]{
       border:none;
       padding:0px;
       margin:0px;
