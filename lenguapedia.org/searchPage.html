@@ -105,7 +105,7 @@ function getLinks(w,l){
         let langDoc = lparser.parseFromString(langPage, "text/html");
         let langDropdown = `<option value="de">German</option>`;
         let langRows = langDoc.querySelectorAll('div[data-language-code][jsname]');
-      console.log(langRows);
+     // console.log(langRows);
         const langRows_length=langRows.length;
         for(let i=1;i<langRows_length;i++){try{
             let code = langRows[i].getAttribute('data-language-code');
