@@ -26,7 +26,7 @@ tr:nth-child(odd)>td{
 
  
 
-background-color: rgba(100,100,150,0.25) !important;
+background-color: rgba(150,150,200,0.25) !important;
 
 
  
@@ -38,7 +38,7 @@ tr:nth-child(even)>td{
 
  
 
-background-color: rgba(100,100,200,0.25) !important;
+background-color: rgba(150,150,250,0.25) !important;
 
 
  
