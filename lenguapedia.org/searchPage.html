@@ -98,7 +98,9 @@ function getLinks(w,l){
             let full = wikiRows[i].getElementsByTagName('th')[0].textContent.trim();
             if(full.length<1){full = wikiRows[i].getElementsByTagName('td')[0].textContent.trim();;}
           //  if(code=='zh'){full='Chinese';}
+          if(document.querySelector('select[id="wiki-prefix"]>option[value="'+code+'"]')){continue;}
             wikiList[code]=full;
+          
             wikiDropdown+=`<option value="`+code+`">`+full+`</option>`;
         }catch(e){continue;}}     
         document.getElementById('wiki-prefix').innerHTML=wikiDropdown;
@@ -122,6 +124,7 @@ function getLinks(w,l){
         for(let i=1;i<langRows_length;i++){try{
             let code = langRows[i].getAttribute('data-language-code');
             let full = langRows[i].querySelector('[jsname]').textContent.trim();
+     if(document.querySelector('select[id="lang-to"]>option[value="'+code+'"]')){continue;}
             langList[code]=full;
             langDropdown+=`<option value="`+code+`">`+full+`</option>`;
         }catch(e){continue;}}     
