@@ -26,7 +26,7 @@ tr:nth-child(odd)>td:not(:has(table)){
 
  
 
-background-color: rgba(150,150,200,0.25) !important;
+background-color: rgba(175,175,225,0.25) !important;
 
 
  
@@ -38,7 +38,7 @@ tr:nth-child(even)>td:not(:has(table)){
 
  
 
-background-color: rgba(150,150,250,0.25) !important;
+background-color: rgba(200,200,250,0.25) !important;
 
 
  
