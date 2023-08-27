@@ -44,8 +44,10 @@ th{
 <table id="lang-table"></table>
 <script>
 let wikiList = {};
+let wikiListReverse = {};
 
 let langList = {};
+let langListReverse = {};
 
 document.getElementById('lang-to').onchange=function(){getLinks();};
 document.getElementById('wiki-prefix').onchange=function(){getLinks();};
@@ -99,7 +101,10 @@ function getLinks(w,l){
             if(full.length<1){full = wikiRows[i].getElementsByTagName('td')[0].textContent.trim();;}
           //  if(code=='zh'){full='Chinese';}
           if(document.querySelector('select[id="wiki-prefix"]>option[value="'+code+'"]')){continue;}
+            if(wikiList[code]){continue;}
+          if(wikiListReverse[full]){continue;}
             wikiList[code]=full;
+            wikiListReverse[full]=code;
           
             wikiDropdown+=`<option value="`+code+`">`+full+`</option>`;
         }catch(e){continue;}}     
@@ -125,7 +130,10 @@ function getLinks(w,l){
             let code = langRows[i].getAttribute('data-language-code');
             let full = langRows[i].querySelector('[jsname]').textContent.trim();
      if(document.querySelector('select[id="lang-to"]>option[value="'+code+'"]')){continue;}
+          if(langList[code]){continue;}
+          if(langListReverse[full]){continue;}
             langList[code]=full;
+            langListReverse[full]=code;
             langDropdown+=`<option value="`+code+`">`+full+`</option>`;
         }catch(e){continue;}}     
         document.getElementById('lang-to').innerHTML=langDropdown;
