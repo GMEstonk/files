@@ -103,7 +103,9 @@ function getLinks(w,l){
           if(document.querySelector('select[id="wiki-prefix"]>option[value="'+code+'"]')){continue;}
             if(wikiList[code]){continue;}
          // if(wikiListReverse[full]){continue;}
+          if(full.includes('Wikipedia'){
             wikiList[code]=full;
+          }
          //   wikiListReverse[full]=code;
           
             wikiDropdown+=`<option value="`+code+`">`+full+`</option>`;
