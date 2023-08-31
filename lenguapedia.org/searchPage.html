@@ -93,7 +93,7 @@ function getLinks(w,l){
 
         let wikiDoc = parser.parseFromString(wikiPage, "text/html");
         let wikiDropdown = ``;
-        let wikiRows = wikiDoc.getElementsByClassName('wikitable')[1].getElementsByTagName('tr');
+        let wikiRows = wikiDoc.querySelectorAll('.wikitable tr');
         const wikiRows_length=wikiRows.length;
         for(let i=1;i<wikiRows_length;i++){try{
             let code = wikiRows[i].getElementsByTagName('td')[3].textContent.trim();
