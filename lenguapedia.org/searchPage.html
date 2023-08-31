@@ -105,10 +105,11 @@ function getLinks(w,l){
          // if(wikiListReverse[full]){continue;}
           if(full.includes('Wikipedia')){
             wikiList[code]=full;
-          }
+      
          //   wikiListReverse[full]=code;
           
             wikiDropdown+=`<option value="`+code+`">`+full+`</option>`;
+                }
         }catch(e){continue;}}     
         document.getElementById('wiki-prefix').innerHTML=wikiDropdown;
 
