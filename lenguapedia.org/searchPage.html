@@ -102,7 +102,7 @@ function getLinks(w,l){
           //  if(code=='zh'){full='Chinese';}
           if(document.querySelector('select[id="wiki-prefix"]>option[value="'+code+'"]')){continue;}
             if(wikiList[code]){continue;}
-          if(wikiListReverse[full]){continue;}
+         // if(wikiListReverse[full]){continue;}
             wikiList[code]=full;
             wikiListReverse[full]=code;
           
