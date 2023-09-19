@@ -44,11 +44,11 @@ function rewriteWikiLengua(){
   if((windowURL=='https://lenguapedia.org')||(windowURL=='https://lenguapedia.org/')){
 
     
-    if(!main.innerHTML.toString().includes('https://filers.lenguapedia.org/lenguapedia.org/searchPage.html')){
+    if(!main.innerHTML.toString().includes('https://api.lenguapedia.org/https://files.servleteer.com/lenguapedia.org/searchPage.html')){
       main.innerHTML=`
-      <iframe style="border:none;padding:0px; margin:0px;width:100%;height:100vh;" src="https://filers.lenguapedia.org/lenguapedia.org/searchPage.html?"`+new Date().getTime()+`></iframe>
+      <iframe style="border:none;padding:0px; margin:0px;width:100%;height:100vh;" src="https://api.lenguapedia.org/https://files.servleteer.com/lenguapedia.org/searchPage.html?"`+new Date().getTime()+`></iframe>
           <style>
-    iframe[src*="https://filers.lenguapedia.org/lenguapedia.org/searchPage.html"]{
+    iframe[src*="https://api.lenguapedia.org/https://files.servleteer.com//lenguapedia.org/searchPage.html"]{
       border:none;
       padding:0px;
       margin:0px;
